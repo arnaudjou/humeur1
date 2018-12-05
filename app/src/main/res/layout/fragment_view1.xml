@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:id="@+id/fragment_view1"
+    android:id="@+id/fragment_view1_rootview"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".controller.fragment.View1Fragment">
 
-    <ImageView
-        android:id="@+id/View1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_android_happy" />
-
-    <ImageView
+    <ImageButton
         android:id="@+id/HistoryButton"
-        android:layout_gravity="right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_history_black"/>
+        android:layout_gravity="end"
+        android:src="@drawable/ic_history_black" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/CommentaryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
