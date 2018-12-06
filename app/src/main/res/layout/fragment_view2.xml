@@ -13,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitCenter"
+        android:onClick="onClick"
+        android:clickable="true"
         android:src="@drawable/ic_android_superhappy" />
 
 </LinearLayout>
