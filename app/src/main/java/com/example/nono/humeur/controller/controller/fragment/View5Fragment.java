@@ -1,4 +1,4 @@
-package com.example.nono.humeur.controller.fragment;
+package com.example.nono.humeur.controller.controller.fragment;
 
 
 import android.os.Bundle;
@@ -15,10 +15,10 @@ import com.example.nono.humeur.R;
 public class View5Fragment extends Fragment {
 
 
-    public View5Fragment() {
+    public static View5Fragment newInstance () {
+        return (new View5Fragment());
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

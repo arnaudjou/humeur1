@@ -1,4 +1,4 @@
-package com.example.nono.humeur.controller.fragment;
+package com.example.nono.humeur.controller.controller.fragment;
 
 
 import android.os.Bundle;
@@ -12,19 +12,19 @@ import com.example.nono.humeur.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class View4Fragment extends Fragment {
+public class View3Fragment extends Fragment {
 
 
-    public View4Fragment() {
+    public static View3Fragment newInstance () {
+        return (new View3Fragment());
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_view4, container, false);
+        return inflater.inflate(R.layout.fragment_view3, container, false);
     }
 
 }
