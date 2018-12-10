@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     android:id="@+id/fragment_view1_rootview"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_sage"
     tools:context=".controller.controller.fragment.fragments.View1Fragment">
 
     <ImageButton
@@ -13,8 +14,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitCenter"
-        android:onClick="onClick"
+        android:background="@color/light_sage"
         android:clickable="true"
         android:src="@drawable/ic_android_happy" />
 
-  </LinearLayout>
+    <ImageButton
+        android:id="@+id/HistoryButton"
+        android:layout_width="55dp"
+        android:layout_height="48dp"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:src="@drawable/ic_history_black"
+        tools:layout_editor_absoluteX="546dp"
+        tools:layout_editor_absoluteY="778dp" />
+
+    <ImageButton
+        android:id="@+id/CommentaryButton"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_note_add_black"         />
+
+
+</android.support.constraint.ConstraintLayout>

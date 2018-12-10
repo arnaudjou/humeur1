@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class VerticalViewPager extends ViewPager {
+
     public VerticalViewPager (Context context) {
         super(context);
         init ();
