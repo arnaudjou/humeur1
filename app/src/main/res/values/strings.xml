@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_commentary_activity">Commentary_activity</string>
+    <string name="ok">Ok</string>
+    <string name="later">Later</string>
+    <string name="commentary">commentary</string>
 </resources>

@@ -13,6 +13,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
+
     Date currentTime = Calendar.getInstance().getTime();
 
     @Override
@@ -20,17 +21,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.configureViewPager ();
-
-
+        this.configureViewPager();
     }
 
-
-    private void configureViewPager (){
-        ViewPager pager = (ViewPager)findViewById(R.id.activity_main_viewpager);
-        pager.setAdapter (new PageAdapter(getSupportFragmentManager()));
+    private void configureViewPager() {
+        ViewPager pager = (ViewPager) findViewById(R.id.activity_main_viewpager);
+        pager.setAdapter(new PageAdapter(getSupportFragmentManager()));
 
     }
-
 
 }
+
+
+

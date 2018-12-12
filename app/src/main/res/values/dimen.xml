@@ -7,9 +7,13 @@
 
     <!-- Images -->
 
-    <dimen name="size_image_height">200dip</dimen>
+    <dimen name="size_image_height">50dip</dimen>
 
     <dimen name="size_image_width">@dimen/size_image_height</dimen>
+
+    <!-- Buttons -->
+
+
 
 
 
