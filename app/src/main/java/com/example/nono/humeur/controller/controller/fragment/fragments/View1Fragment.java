@@ -2,20 +2,14 @@ package com.example.nono.humeur.controller.controller.fragment.fragments;
 
 
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.DeadSystemException;
-import android.sax.StartElementListener;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -23,14 +17,17 @@ import android.widget.Toast;
 
 import com.example.nono.humeur.R;
 
-import static java.time.DayOfWeek.MONDAY;
+import java.util.Calendar;
+
+import static android.widget.Toast.*;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class View1Fragment extends Fragment {
 
-    public static int DAY_OF_WEEK;
+    public SharedPreferences mHappy;
+    public static final String PREF_DATE ="PREF_DATE";
 
 
     public View1Fragment() {
@@ -46,8 +43,12 @@ public class View1Fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+//    mHappy = getContext().getSharedPreferences(PREF_DATE, Context.MODE_PRIVATE);
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view1, container, false);
+
         ImageButton commentaryButton = view.findViewById(R.id.CommentaryButton);
         commentaryButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,12 +77,16 @@ public class View1Fragment extends Fragment {
         view1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences mHappy = getActivity().getPreferences(Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = mHappy.edit();
-                editor.putLong("day", DAY_OF_WEEK );
-                editor.commit();
-                Toast.makeText(getActivity(), "your mood is record",
-                        Toast.LENGTH_SHORT).show();
+                Calendar c = Calendar.getInstance();
+                int cDay = c.get(Calendar.DAY_OF_WEEK);
+                if (cDay >= Calendar.SUNDAY && cDay <= Calendar.SATURDAY) {
+                    mHappy.edit().putInt(PREF_DATE, cDay).apply();
+                    Toast.makeText(getActivity(), "your mood is record",
+                            LENGTH_SHORT).show();
+                } else {
+                    makeText(getActivity(), "your mood is not record",
+                            LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -90,22 +95,14 @@ public class View1Fragment extends Fragment {
         historyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(View1Fragment.this.getActivity());
-                View mView = getLayoutInflater().inflate(R.layout.activity_commentary, null);
-                mBuilder.setView(mView).setNegativeButton("Later", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                }).setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
+                int defaultValue = 0;
+                int day = mHappy.getInt(PREF_DATE, defaultValue);
 
-                AlertDialog dialog = mBuilder.create();
-                dialog.show();
+                makeText(getActivity(), "ok", LENGTH_SHORT).show();
             }
         });
 
         return view;
     }
+
 }
