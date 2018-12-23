@@ -17,25 +17,8 @@
         android:clickable="true"
         android:scaleType="fitCenter"
         android:background="@color/warm_grey"
-        android:src="@drawable/ic_android_disappointed"/>
-
-    <ImageButton
-        android:id="@+id/HistoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_alignParentBottom="true"
-        android:clickable="true"
-        android:src="@drawable/ic_history_black" />
-
-    <ImageButton
-        android:id="@+id/CommentaryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:clickable="true"
-        android:src="@drawable/ic_note_add_black" />
-
+        android:src="@drawable/ic_android_disappointed"
+        android:contentDescription="@string/ok"
+        android:focusable="true" />
 
 </RelativeLayout>

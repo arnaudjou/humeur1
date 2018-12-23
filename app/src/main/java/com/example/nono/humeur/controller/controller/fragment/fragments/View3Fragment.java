@@ -41,29 +41,7 @@ public class View3Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view3, container, false);
-        ImageButton commentaryButton = view.findViewById(R.id.CommentaryButton);
-        commentaryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(View3Fragment.this.getActivity());
-                View mView = getLayoutInflater().inflate(R.layout.activity_commentary, null);
-                EditText mCommentary = mView.findViewById(R.id.edit_commentary);
-
-                mBuilder.setView(mView).setNegativeButton("Later", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                }).setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-
-                AlertDialog dialog = mBuilder.create();
-                dialog.show();
-            }
-        });
-        ImageButton view3;
+            ImageButton view3;
         view3 = view.findViewById(R.id.View3);
         view3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,26 +65,6 @@ public class View3Fragment extends Fragment {
             }
         });
 
-        ImageButton historyButton;
-        historyButton = view.findViewById(R.id.HistoryButton);
-        historyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(View3Fragment.this.getActivity());
-                View mView = getLayoutInflater().inflate(R.layout.activity_commentary, null);
-                mBuilder.setView(mView).setNegativeButton("Later", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                }).setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-
-                AlertDialog dialog = mBuilder.create();
-                dialog.show();
-            }
-        });
 
         return view;
     }

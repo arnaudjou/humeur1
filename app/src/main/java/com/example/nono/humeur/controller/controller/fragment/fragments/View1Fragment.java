@@ -26,10 +26,6 @@ import static android.widget.Toast.*;
  */
 public class View1Fragment extends Fragment {
 
-    public SharedPreferences mHappy;
-    public static final String PREF_DATE ="PREF_DATE";
-
-
     public View1Fragment() {
     }
 
@@ -43,10 +39,16 @@ public class View1Fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_view1, container, false);
+    }
+}
 
 
 //    mHappy = getContext().getSharedPreferences(PREF_DATE, Context.MODE_PRIVATE);
         // Inflate the layout for this fragment
+
+     /**
+
         View view = inflater.inflate(R.layout.fragment_view1, container, false);
 
         ImageButton commentaryButton = view.findViewById(R.id.CommentaryButton);
@@ -80,9 +82,13 @@ public class View1Fragment extends Fragment {
                 Calendar c = Calendar.getInstance();
                 int cDay = c.get(Calendar.DAY_OF_WEEK);
                 if (cDay >= Calendar.SUNDAY && cDay <= Calendar.SATURDAY) {
-                    mHappy.edit().putInt(PREF_DATE, cDay).apply();
+                    if (mHappy.getInt(PREF_DATE, 8) == 0){
+                        mHappy.edit().putInt(PREF_DATE, cDay).apply();
                     Toast.makeText(getActivity(), "your mood is record",
-                            LENGTH_SHORT).show();
+                            LENGTH_SHORT).show();}
+                            else {makeText(getActivity(), "your mood is not record",
+                            LENGTH_SHORT).show();}
+
                 } else {
                     makeText(getActivity(), "your mood is not record",
                             LENGTH_SHORT).show();
@@ -101,8 +107,4 @@ public class View1Fragment extends Fragment {
                 makeText(getActivity(), "ok", LENGTH_SHORT).show();
             }
         });
-
-        return view;
-    }
-
-}
+*/

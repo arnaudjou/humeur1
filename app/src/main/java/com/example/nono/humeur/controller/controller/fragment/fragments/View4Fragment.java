@@ -1,6 +1,8 @@
 package com.example.nono.humeur.controller.controller.fragment.fragments;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,11 +22,6 @@ import java.util.Date;
  */
 public class View4Fragment extends Fragment {
 
-    ImageButton HistoryButton;
-    ImageButton CommentaryButton;
-    private EditText mCommentary;
-    private SharedPreferences mPreferences;
-    public static final String PREF_KEY_COMMENTARY = "PREF_KEY_COMMENTARY";
 
     Date currentTime = Calendar.getInstance().getTime();
 
@@ -38,37 +35,34 @@ public class View4Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_view4, container, false);
-    }
+        final View view = inflater.inflate(R.layout.fragment_view4, container, false);
 
-    private void addListenerOnButton() {
+         ImageButton view4;
+                view4 = view.findViewById(R.id.View4);
+                view4.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(View4Fragment.this.getActivity());
+                 View mView = getLayoutInflater().inflate(R.layout.activity_commentary, null);
+                 EditText mCommentary = mView.findViewById(R.id.edit_commentary);
 
-        HistoryButton = (ImageButton) HistoryButton.findViewById(R.id.HistoryButton);
+                 mBuilder.setView(mView).setNegativeButton("Later", new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface dialog, int which) {
+                     }
+                 }).setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface dialog, int which) {
+                     }
+                 });
 
-        HistoryButton.setOnClickListener(new View.OnClickListener() {
+                 AlertDialog dialog = mBuilder.create();
+                 dialog.show();
 
-            @Override
-            public void onClick(View v) {
+             }
+         });
 
-            }
-        });
-
-        CommentaryButton = (ImageButton) CommentaryButton.findViewById(R.id.CommentaryButton);
-
-        CommentaryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String commentary = mCommentary.getText().toString();
-
-                /** try to edit commentary in bundle with date
-                 * Need a "if" with existant commentary
-
-
-                 mPreferences.edit().putInt(PREF_KEY_COMMENTARY, int currentTime);
-                 */
-            }
-        });
+        return view;
 
     }
 }

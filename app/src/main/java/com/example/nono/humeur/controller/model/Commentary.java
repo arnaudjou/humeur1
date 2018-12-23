@@ -1,32 +1,45 @@
 package com.example.nono.humeur.controller.model;
 
+import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.DatePicker;
 
 import com.example.nono.humeur.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Commentary extends AppCompatActivity {
-
-    public Commentary() {
-        d = new Date();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commentary);
     }
+/**
+    GregorianCalendar calendar =new GregorianCalendar();
+	calendar.setTime(new Date());
+    int today =calendar.get(calendar.DAY_OF_WEEK);
 
-    Date d;
+	switch (today) {
+        case : GregorianCalendar.MONDAY;
+            //on est lundi
+            break;
+        case GregorianCalendar.TUESDAY:
+            //on est mardi
+            break;
 
-    /**
-//premier jours de la semaine
-    d.setDate(d.getDate() - d.getDay()); //si c'est le 2eme jours soit mardi 2-2 = 0 on tombe sur dimanche
-//dernier jours de la semaine :
-    d.setDate(d.getDate() + 6 - d.getDay()); /
-     */
-}
+        ///etc etc
 
+        default:
+            //ça devrait pas erreur
+            break;
+    }
+*/
+    }
